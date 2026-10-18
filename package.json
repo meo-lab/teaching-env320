@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev slides.md",
-    "build": "slidev build slides.md",
+    "build": "slidev build slides.md --base /teaching/env320/ --out dist",
     "export": "slidev export slides.md"
   },
   "dependencies": {
