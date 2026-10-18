@@ -1,0 +1,55 @@
+.course-intro .bonn-content h1 { font-size: 1.85rem; margin-bottom: 18px; }
+.course-intro figure { margin: 0; min-width: 0; }
+.course-intro img { object-fit: contain; max-width: 100%; }
+.course-intro figcaption { font-size: .65rem; line-height: 1.3; color: #555; margin-top: 6px; }
+.course-intro .intro-credit { position: absolute; left: 72px; right: 100px; bottom: 42px; font-size: .54rem; line-height: 1.3; color: #666; }
+.course-intro .intro-credit a { color: var(--bonn-blue); }
+.intro-challenges { display: grid; grid-template-columns: 1fr 180px 1fr; align-items: center; gap: 16px; }
+.intro-challenges figure > img { width: 100%; height: 220px; object-fit: cover; }
+.intro-challenges figcaption { text-align: center; font-weight: 700; color: var(--bonn-blue); }
+.intro-earth { width: 180px; height: 180px; }
+.course-intro .intro-message { margin-top: 20px; text-align: center; font-size: .95rem; line-height: 1.5; }
+.intro-message strong { color: var(--bonn-blue); }
+.intro-satellite-archive { position: relative; height: 330px; }
+.intro-satellite-archive > img { width: 100%; height: 100%; }
+.intro-archive-caption { position: absolute; right: 8px; top: 10px; background: white; border: 2px solid var(--bonn-yellow); padding: 12px 18px; font-size: .85rem; line-height: 1.5; }
+.intro-archive-caption small { display: block; font-size: .5rem; color: #666; margin-top: 4px; }
+.intro-two-images { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; height: 300px; }
+.intro-two-images figure > img { width: 100%; max-height: 290px; }
+.intro-person { display: flex; align-items: center; gap: 10px; font-size: .65rem; color: #555; margin: 8px 0; }
+.intro-person > img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+.intro-person-right { justify-content: flex-end; margin-top: -10px; }
+.intro-antarctica { display: grid; grid-template-columns: 1fr 220px; gap: 25px; height: 320px; align-items: center; }
+.intro-ice-detail { width: 100%; max-height: 215px; }
+.intro-ice-map { width: 100%; height: 320px; }
+.intro-marine { display: grid; grid-template-columns: 1fr 1.1fr; gap: 30px; align-items: center; height: 315px; }
+.intro-marine figure > img { width: 100%; max-height: 220px; }
+.intro-marine video { width: 100%; height: 315px; object-fit: contain; }
+.intro-satellite-label { display: flex; gap: 10px; align-items: center; font-size: .65rem; margin-top: 12px; }
+.intro-satellite-label img { width: 38px; height: 38px; }
+.intro-tracking { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: 265px; align-items: center; }
+.intro-tracking img { width: 100%; max-height: 265px; }
+.intro-retrieval { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: center; height: 320px; }
+.course-intro .intro-retrieval p, .course-intro .intro-forest p { font-size: .95rem; line-height: 1.5; }
+.intro-retrieval > img { width: 100%; max-height: 320px; }
+.intro-trees { display: flex; justify-content: center; gap: 20px; height: 280px; }
+.intro-trees img { width: 20%; height: 100%; }
+.intro-trees img:first-child { width: 55%; }
+.intro-forest { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 16px; align-items: center; height: 285px; }
+.intro-forest > img { width: 100%; height: 285px; object-fit: contain; }
+.course-intro .intro-forest-summary { font-size: .85rem; line-height: 1.4; margin: 0 0 12px; }
+.course-intro .intro-forest .intro-data { font-size: .68rem; line-height: 1.6; }
+.intro-representation-flow { position: relative; display: grid; grid-template-columns: 160px 180px 220px 130px; gap: 35px; align-items: center; height: 260px; margin-top: 26px; }
+.intro-flow-earth { width: 160px; height: 160px; z-index: 1; }
+.intro-flow-arrow { position: absolute; left: 160px; right: 100px; top: 120px; height: 24px; background: var(--bonn-blue); }
+.intro-flow-arrow::after { content: ''; position: absolute; right: -20px; top: -12px; border-top: 24px solid transparent; border-bottom: 24px solid transparent; border-left: 24px solid var(--bonn-blue); }
+.intro-geodata, .intro-embedding { height: 230px; border-radius: 20px; background: #5d6057; color: white; position: relative; text-align: center; padding: 15px; font-size: .85rem; }
+.intro-stack { position: relative; height: 155px; margin-top: 12px; }
+.intro-stack img { position: absolute; width: 92px; height: 92px; object-fit: cover; border: 1px solid white; }
+.intro-stack img:nth-child(1) { left: 45px; top: 0; }
+.intro-stack img:nth-child(2) { left: 30px; top: 20px; }
+.intro-stack img:nth-child(3) { left: 15px; top: 40px; }
+.intro-stack img:nth-child(4) { left: 0; top: 60px; }
+.intro-embedding > img { display: block; width: 130px; height: 130px; margin: 12px auto 0; border-radius: 50%; }
+.intro-decisions { color: var(--bonn-blue); font-size: 1rem; z-index: 1; background: white; }
+.intro-flow-captions { display: grid; grid-template-columns: 180px 220px; gap: 35px; margin-left: 195px; text-align: center; font-size: .7rem; color: #555; }

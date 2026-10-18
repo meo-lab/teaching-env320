@@ -1,0 +1,22 @@
+{
+  "name": "teaching-env320",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.14.2",
+    "@slidev/theme-default": "latest",
+    "@tensorflow/tfjs": "^4.22.0",
+    "firebase": "^12.19.0",
+    "leaflet": "^1.9.4",
+    "p5": "^1.11.11",
+    "proj4": "^2.22.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.59.1"
+  }
+}

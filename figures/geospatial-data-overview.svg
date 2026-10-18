@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 960 380" role="img" aria-labelledby="title desc">
+  <title id="title">Overview of geospatial data formats</title>
+  <desc id="desc">A globe surrounded by point, line, polygon, and raster data representations.</desc>
+
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#00457c" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <g fill="none" stroke="#aeb8c0" stroke-width="3">
+    <path d="M286 94 C350 94 365 122 391 145" />
+    <path d="M674 94 C610 94 595 122 569 145" />
+    <path d="M286 286 C350 286 365 258 391 235" />
+    <path d="M674 286 C610 286 595 258 569 235" />
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="24" y="43" width="270" height="98" rx="16" fill="#00457c" />
+    <text x="159" y="82" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="middle">Points</text>
+    <text x="159" y="113" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="middle">coordinate → values</text>
+
+    <rect x="666" y="43" width="270" height="98" rx="16" fill="#f2c300" />
+    <text x="801" y="82" fill="#222222" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="middle">Lines</text>
+    <text x="801" y="113" fill="#222222" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="middle">coordinate list → values</text>
+
+    <rect x="24" y="239" width="270" height="98" rx="16" fill="#4f50ba" />
+    <text x="159" y="278" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="middle">Polygon</text>
+    <text x="159" y="309" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle">closed coordinate list → values</text>
+
+    <rect x="666" y="239" width="270" height="98" rx="16" fill="#2eb82e" />
+    <text x="801" y="278" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="middle">Raster</text>
+    <text x="801" y="309" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="middle">coordinate grid → values</text>
+  </g>
+
+</svg>

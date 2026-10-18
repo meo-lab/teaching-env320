@@ -1,0 +1,260 @@
+[
+  {
+    "source_slide": 1,
+    "text": [
+      "Urbanization",
+      "Deforestation",
+      "The Earth is faced with global challenges",
+      "to find right",
+      " policies in biodiversity, food security, human health, and livelihoods",
+      "We need to ",
+      "analyze geodata ",
+      "at large scale",
+      "Images: Google Earth Engine Time Series Gallery ",
+      "11.10.26",
+      "Open Earth Monitor – Global Workshop 2026"
+    ],
+    "media": [
+      "image3.gif",
+      "image5.png",
+      "image4.gif"
+    ]
+  },
+  {
+    "source_slide": 2,
+    "text": [
+      "Observing the Earth at unprecidented Scales",
+      "2",
+      "Sentinel-2 Archive is now at ",
+      "45 Petabytes and",
+      "growing ",
+      "4 PB/year",
+      "Image: European Space Agency",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image6.jpeg"
+    ]
+  },
+  {
+    "source_slide": 3,
+    "text": [
+      "Example Pollution",
+      "Monitoring",
+      "3",
+      "Cuttings Beach, Durban  (South Africa) image credit: Lisa Guastella",
+      "Giel Haagenbeek  (WUR)",
+      "Hagenbeek",
+      ", G. W., van Emmerik, et al., incl. ",
+      "Rußwurm",
+      ", M. (2026). Exploring transferability of plastic-water hyacinth interaction and detection in rivers. ",
+      "Iscience",
+      ", ",
+      "29",
+      "(6).",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image7.png",
+      "image9.png",
+      "image8.png"
+    ]
+  },
+  {
+    "source_slide": 4,
+    "text": [
+      "Finding Meteors in Antarctic Blue Ice",
+      "4",
+      "Veronica Tolenaar",
+      "(",
+      "Vrije Universiteit Brussel",
+      ")",
+      "Veronica ",
+      "Tollenaar",
+      ", Harry Zekollari, Frank Pattyn, Marc",
+      " Rußwurm",
+      ", Benjamin Kellenberger, Stef Lhermitte, Maaike Izeboud, and Devis Tuia (2024). ",
+      "Where the White Continent Is Blue: Deep Learning Locates Bare Ice in Antarctica.",
+      " Geophysical Research Letters, 51(3), e2023GL106285. ",
+      "doi:10.1029/2023GL106285",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image11.png",
+      "image10.png",
+      "image12.png"
+    ]
+  },
+  {
+    "source_slide": 5,
+    "text": [
+      "Detecting Litter in ",
+      "Open Waters",
+      "5",
+      "Cuttings Beach, Durban  (South Africa) image credit: Lisa Guastella",
+      "go.epfl.ch/marinedebrisdetector",
+      "Rußwurm",
+      ", M., Venkatesa, S. J., & Tuia, D. (2023). ",
+      "Large-scale detection of marine debris in ",
+      "coastal areas with Sentinel-2. ",
+      "Iscience",
+      ", ",
+      "26",
+      "(12).",
+      "Sentinel-2 ",
+      "satellite",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image14.svg",
+      "media1.mov",
+      "media1.mov",
+      "image13.png",
+      "image7.png"
+    ]
+  },
+  {
+    "source_slide": 6,
+    "text": [
+      "Tracking Litter Patches Over",
+      "Time A",
+      "c",
+      "ross Sensors",
+      "6",
+      "Gabrielė Tijūnaitytė",
+      "Wagengen, Bonn",
+      "Gabrielė ",
+      "Tijūnaitytė",
+      ", Emanuele Dalsasso, and Marc ",
+      "Rußwurm",
+      " (2026).  ",
+      "Cross-Sensor Matching of Marine Litter Patches in Satellite  Double Acquisitions.",
+      " ECCV Marine Vision Workshop (MaVi).",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image15.png",
+      "image17.png",
+      "image16.png"
+    ]
+  },
+  {
+    "source_slide": 7,
+    "text": [
+      "Text-based",
+      "Image Retrieval",
+      "on Camera Traps",
+      "T",
+      "rained on Snapshot Serengeti camera-trap dataset (Swanson et al., 2015) with more than ",
+      "seven million images",
+      "7",
+      "Gabeff",
+      ", V., ",
+      "Rußwurm",
+      ", M., Tuia, D., & Mathis, A. (2024). Wildclip: Scene and animal attribute retrieval from camera trap data with domain-adapted vision-language models. ",
+      "International Journal of Computer Vision",
+      ", ",
+      "132",
+      "(9), 3770-3786.",
+      "Valentin Gabeff",
+      "(EPFL)",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image19.jpg",
+      "image18.png"
+    ]
+  },
+  {
+    "source_slide": 8,
+    "text": [
+      "Tree Species Classification",
+      "8",
+      "Takayuki Ishikawa",
+      "WUR MSc Student",
+      "Takayuki ",
+      "Ishikawa",
+      ", Carmelo Bonannella, Bas J. W. Lerink, and Marc ",
+      "Rußwurm",
+      " (2026). ",
+      "Assessing the effectiveness of deep embeddings for tree species classification in the Dutch Forest Inventory.",
+      " Science of Remote Sensing, 14, 100498. ",
+      "https://doi.org/10.1016/j.srs.2026.100498",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image21.jpeg",
+      "image20.png",
+      "image23.emf",
+      "image22.png"
+    ]
+  },
+  {
+    "source_slide": 9,
+    "text": [
+      "Forest Changes in the Swiss Alps Connected with a Changing Climate",
+      "9",
+      "Thien-Anh",
+      "Nguyen ",
+      "(EPFL)",
+      "Historic aerial photos (1946 to 2020) reaveal forest gains in high altitutes, as the tree-line advances upwards with a warmer climate.",
+      "Data: 2660 1kmx1km ",
+      "tiles  with ",
+      "12-20 time steps",
+      "Opening",
+      " ",
+      "| Gap | Method | Outlook"
+    ],
+    "media": [
+      "image25.png",
+      "image24.jpeg",
+      "image26.png"
+    ]
+  },
+  {
+    "source_slide": 10,
+    "text": [
+      "We need to Extract Effective Representations from the Geodata Available",
+      "t",
+      "housands of petabytes ",
+      "in satellite & weather data ",
+      "geodata",
+      "informed",
+      "d",
+      "ecisions",
+      "effective geospatial",
+      "representations",
+      "Opening ",
+      "| ",
+      "Gap",
+      " | Method | Outlook",
+      "10",
+      "effective geospatial",
+      "data representations"
+    ],
+    "media": [
+      "image31.png",
+      "image5.png",
+      "image30.png",
+      "image29.png",
+      "image28.png",
+      "image33.gif",
+      "image27.svg",
+      "image32.jpg"
+    ]
+  }
+]
