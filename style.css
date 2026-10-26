@@ -584,51 +584,231 @@ a.phase-content-tile:focus-visible {
   height: 1rem;
 }
 
-.bonn-cover-layout {
-  display: flex;
-  align-items: flex-end;
-  padding: 0 0 78px 46px;
-  background-color: #eef2f4;
-  background-image:
-    linear-gradient(90deg, rgba(255,255,255,.92) 0 49%, rgba(255,255,255,.52) 49% 100%),
-    linear-gradient(135deg, #eef2f4 0%, #ffffff 42%, #dce4e8 100%);
-  background-position: center;
-  background-size: cover;
-}
-
-.bonn-cover-panel {
-  position: relative;
-  z-index: 2;
-  width: 47%;
-  min-height: 172px;
-  padding: 42px 38px 34px;
+.bonn-course-cover-layout {
   background: #ffffff;
 }
 
-.bonn-cover-subhead {
-  margin: 0 0 8px;
-  color: var(--bonn-muted);
-  font-size: 1.05rem;
+.bonn-course-cover-layout::before {
+  display: none;
+}
+
+.bonn-course-cover-ilr {
+  position: absolute;
+  top: 82px;
+  left: 37px;
+  width: 75px;
+  height: auto;
+}
+
+.bonn-course-cover-bonn {
+  position: absolute;
+  top: 81px;
+  right: 32px;
+  width: 124px;
+  height: auto;
+}
+
+.bonn-course-cover-band {
+  position: absolute;
+  top: 148px;
+  right: 10px;
+  left: 10px;
+  height: 187px;
+  padding: 19px 34px 20px;
+  background: #60a336;
+  color: #ffffff;
+  text-align: center;
+}
+
+.bonn-course-cover-band h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2.05rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+.bonn-course-cover-band .bonn-course-cover-authors {
+  margin: 22px 0 0;
+  color: #ffffff;
+  font-size: .91rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+.bonn-course-cover-term {
+  position: absolute;
+  top: 349px;
+  right: 20px;
+  left: 20px;
+  margin: 0;
+  color: #111111;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.bonn-course-cover-groups {
+  position: absolute;
+  top: 385px;
+  right: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 75px;
+}
+
+.bonn-course-cover-groups img:first-child {
+  width: 205px;
+  height: auto;
+}
+
+.bonn-course-cover-groups img:last-child {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.bonn-course-cover-footer {
+  position: absolute;
+  bottom: 28px;
+  left: 39px;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  height: 28px;
+}
+
+.bonn-course-cover-footer img {
+  max-width: 48px;
+  max-height: 28px;
+  object-fit: contain;
+}
+
+.bonn-cover-layout {
+  background: #ffffff;
+}
+
+.bonn-section-content > .tutorial-closing-details {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 0 66px;
+}
+
+.tutorial-closing-details p {
+  margin: 0;
+}
+
+.tutorial-closing-details .tutorial-closing-time {
+  color: var(--bonn-blue);
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.tutorial-closing-details .tutorial-closing-location {
+  margin-top: 34px;
+  color: var(--bonn-text);
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+.tutorial-closing-details .tutorial-closing-instructor {
+  margin-top: 38px;
+  color: var(--bonn-blue);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.bonn-cover-layout::before {
+  display: none;
+}
+
+.bonn-cover-panel {
+  position: absolute;
+  top: 146px;
+  right: 10px;
+  left: 10px;
+  z-index: 2;
+  height: 198px;
+  padding: 25px 40px 20px;
+  background: #60a336;
+  text-align: center;
+}
+
+.bonn-cover-subhead {
+  margin: 0 0 13px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.2;
   text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 .bonn-cover-panel h1 {
   margin: 0;
-  color: var(--bonn-blue);
-  font-size: 1.85rem;
+  color: #ffffff;
+  font-size: 2.8rem;
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.1;
   text-transform: uppercase;
+  letter-spacing: .055em;
 }
 
-.bonn-cover-panel h2 {
-  margin: 14px 0 0;
-  color: var(--bonn-muted);
+.bonn-cover-panel .bonn-cover-course-title {
+  position: absolute;
+  top: -112px;
+  left: 30px;
+  margin: 0;
+  max-width: 660px;
+  color: #536f8b;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.22;
+  opacity: 1;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+}
+
+.bonn-cover-panel .bonn-cover-author {
+  margin: 26px 0 0;
+  color: #ffffff;
+  font-size: .86rem;
+  font-weight: 400;
+  line-height: 1.2;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.bonn-cover-deck-link {
+  position: absolute;
+  top: 218px;
+  right: 20px;
+  left: 20px;
+  margin: 0;
+  color: var(--bonn-text);
   font-size: .92rem;
-  font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.55;
+}
+
+.bonn-cover-deck-link a {
+  color: var(--bonn-blue);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .bonn-cover-home-link {
@@ -660,11 +840,11 @@ a.phase-content-tile:focus-visible {
 
 .course-cover-license {
   position: fixed;
-  right: 150px;
-  bottom: 18px;
-  left: 84px;
+  right: 160px;
+  bottom: 14px;
+  left: 28px;
   z-index: 3;
-  max-width: calc(47% - 76px);
+  max-width: 650px;
   color: var(--bonn-muted);
   font-size: .34rem;
   line-height: 1.25;
@@ -673,7 +853,7 @@ a.phase-content-tile:focus-visible {
 .course-cover-advance-hint {
   position: fixed;
   right: 28px;
-  bottom: 72px;
+  bottom: 22px;
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -722,9 +902,9 @@ a.phase-content-tile:focus-visible {
 .bonn-logo {
   position: absolute;
   right: 28px;
-  bottom: 18px;
+  top: 72px;
   z-index: 3;
-  width: 98px;
+  width: 132px;
   height: auto;
 }
 

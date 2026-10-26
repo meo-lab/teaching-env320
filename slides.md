@@ -7,11 +7,25 @@ export:
   timeout: 120000
 defaults:
   layout: bonn-content
+layout: bonn-course-cover
+---
+
+# Satellite Data<br>in Agricultural and Environmental<br>Economics
+
+<p class="bonn-course-cover-authors">Marc Rußwurm, David Wuepper, Wyclife Agumba Oluoch</p>
+
+---
 layout: bonn-cover
 subhead: From Satellites to Information
 ---
 
 # Geospatial Data
+
+<p class="bonn-cover-course-title">Satellite Data<br>in Agricultural and Environmental<br>Economics</p>
+
+<p class="bonn-cover-author">Marc Rußwurm, David Wuepper, Wyclife Agumba Oluoch</p>
+
+<p class="bonn-cover-deck-link">Access this slide deck<br><a href="https://meo-lab.com/teaching/env-320/" target="_blank" rel="noopener noreferrer">meo-lab.com/teaching/env-320/</a></p>
 
 ---
 section: overview
@@ -2596,7 +2610,7 @@ section: closing
 sectionTitle: Closing
 ---
 
-# Lecture Overview
+# Lecture Recap
 
 <div class="relative h-[360px] mt-1">
   <img
