@@ -1,0 +1,1 @@
+var e=`/teaching/env-320/assets/active-remote-sensing-BC2dqZ0-.png`;export{e as t};

@@ -1,1 +1,0 @@
-var e=`/teaching/env320/assets/clima-earth-system-schematic-C4mjkzYB.png`;export{e as t};

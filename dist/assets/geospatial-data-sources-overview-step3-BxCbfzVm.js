@@ -1,0 +1,1 @@
+var e=`/teaching/env-320/assets/geospatial-data-sources-overview-step3-COPtRPup.svg`;export{e as t};

@@ -1,1 +1,0 @@
-var e=`/teaching/env320/assets/gis-buIeqURj.jpg`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/teaching/env-320/assets/geospatial-data-sources-overview-step0-BYXlPpon.svg`,t=`/teaching/env-320/assets/geospatial-data-sources-overview-step1-M8qRMRoQ.svg`;export{e as n,t};

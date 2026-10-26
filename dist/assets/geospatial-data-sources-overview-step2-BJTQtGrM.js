@@ -1,0 +1,1 @@
+var e=`/teaching/env-320/assets/geospatial-data-sources-overview-step2-kzb7_UM5.svg`;export{e as t};

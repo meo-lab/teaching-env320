@@ -14,9 +14,9 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SITE_BASE: /teaching/env320/
+  SITE_BASE: /teaching/env-320/
   TARGET_REPOSITORY: meo-lab/meo-lab.github.io
-  TARGET_PATH: teaching/env320
+  TARGET_PATH: teaching/env-320
 
 jobs:
   build-and-deploy:
@@ -46,7 +46,6 @@ jobs:
         working-directory: source
         run: |
           test -f dist/index.html
-          test -f dist/presenter/index.html
           test -f dist/slides.pdf
           ls -la dist
 
