@@ -150,6 +150,9 @@ const props = defineProps({
   },
   comparisonStart: { type: Number, default: 0 },
   comparisonEnd: { type: Number, default: 0 },
+  // Optional recorded responses (values in [0, 1]) shown as the comparison density
+  // instead of querying comparisonPollId, e.g. a snapshot from an earlier session.
+  comparisonValues: { type: Array, default: () => [] },
   sessionId: {
     type: String,
     required: true,
@@ -358,6 +361,10 @@ function startListening() {
 }
 
 function startComparisonListening() {
+  if (props.comparisonValues.length) {
+    comparisonPoints.value = props.comparisonValues.map((value) => ({ value, opacity: 1 }));
+    return;
+  }
   if (!props.comparisonPollId) return;
   const comparisonQuery = query(
     pointsCollectionRef(props.comparisonPollId),

@@ -8,7 +8,6 @@
     "export": "slidev export slides.md"
   },
   "dependencies": {
-    "@slidev/cli": "^52.14.2",
     "@slidev/theme-default": "latest",
     "@tensorflow/tfjs": "^4.22.0",
     "firebase": "^12.19.0",
@@ -17,6 +16,7 @@
     "proj4": "^2.22.0"
   },
   "devDependencies": {
+    "@slidev/cli": "^53.0.0",
     "playwright-chromium": "^1.59.1"
   }
 }

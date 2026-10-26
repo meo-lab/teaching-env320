@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 960 380"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="geospatial-data-sources-overview-full3.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.068421053"
+     inkscape:cx="482.30769"
+     inkscape:cy="182.69231"
+     inkscape:window-width="1164"
+     inkscape:window-height="688"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title">Overview of geospatial data sources</title>
+  <desc
+     id="desc">A globe surrounded by Remote Sensing, Geo-information Systems, and Models and Re-analysis Products.</desc>
+  <defs
+     id="defs1">
+    <filter
+       id="shadow"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feDropShadow
+         dx="0"
+         dy="5"
+         stdDeviation="7"
+         flood-color="#00457c"
+         flood-opacity="0.16" />
+    </filter>
+  </defs>
+  <g
+     fill="none"
+     stroke="#aeb8c0"
+     stroke-width="3"
+     id="g3">
+    <path
+       d="M285 91 C350 91 360 120 385 143"
+       id="path1" />
+    <path
+       d="M675 91 C610 91 600 120 575 143"
+       id="path2" />
+    <path
+       d="M480 292 L480 316"
+       id="path3" />
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g8">
+    <rect
+       x="24"
+       y="42"
+       width="270"
+       height="98"
+       rx="16"
+       fill="#00457c"
+       id="rect3" />
+    <text
+       x="159"
+       y="81"
+       fill="#ffffff"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="24"
+       font-weight="700"
+       text-anchor="middle"
+       id="text3">Remote Sensing</text>
+    <text
+       x="159"
+       y="112"
+       fill="#ffffff"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       text-anchor="middle"
+       id="text4">Optical · Radar</text>
+    <rect
+       x="666"
+       y="42"
+       width="270"
+       height="98"
+       rx="16"
+       fill="#f2c300"
+       id="rect4" />
+    <text
+       x="801"
+       y="83"
+       fill="#222222"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="700"
+       text-anchor="middle"
+       id="text5">Geo-information</text>
+    <text
+       x="801"
+       y="112"
+       fill="#222222"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="700"
+       text-anchor="middle"
+       id="text6">Systems (GIS)</text>
+    <rect
+       x="310"
+       y="310"
+       width="340"
+       height="62"
+       rx="16"
+       fill="#4f50ba"
+       id="rect6" />
+    <text
+       x="480"
+       y="336"
+       fill="#ffffff"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="20"
+       font-weight="700"
+       text-anchor="middle"
+       id="text7">Models and Re-analysis</text>
+    <text
+       x="480"
+       y="360"
+       fill="#ffffff"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       text-anchor="middle"
+       id="text8">Products</text>
+  </g>
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Overview of geospatial data sources</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

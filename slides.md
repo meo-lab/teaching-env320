@@ -8,48 +8,49 @@ export:
 defaults:
   layout: bonn-content
 layout: bonn-cover
-subhead: Lecture 2
+subhead: From Satellites to Information
 ---
 
 # Geospatial Data
 
-## What is geodata?
-
+---
+section: overview
+sectionTitle: Overview
 ---
 
-# Learning Outcomes
+# Lecture Overview
 
-<div class="grid grid-cols-2 gap-6 mt-4">
-
-<div>
-
-## Lecture
-
-- Understand and compare major geospatial data sources from GIS, remote sensing, meteorology, geophysics, and environmental monitoring.
-- Distinguish common geospatial data modalities, including raster images, vector layers, point data, point clouds, time series, trajectories, and gridded fields.
-- Explain key properties of geospatial data, including spatial resolution, temporal resolution, spectral resolution, coverage, uncertainty, and coordinate reference systems.
-- Describe common geospatial data formats and access patterns used in Python-based workflows.
-- Match geospatial data sources and modalities to suitable environmental and socio-ecological applications.
-- Identify practical challenges such as scale mismatch, missing data, sampling bias, spatial autocorrelation, and heterogeneous data quality.
-
-</div>
-
-<div>
-
-## Lab
-
-- Access and preprocess raster, vector, and time-series geospatial data using Python-based tools.
-- Combine multiple geospatial data layers into a common spatial reference and resolution.
-- Extract training samples or analysis regions from geospatial datasets.
-- Evaluate practical limitations of data quality, coverage, scale, and interoperability.
-
-</div>
-
+<div class="relative h-[360px] mt-1">
+  <img
+    src="./figures/geospatial-data-sources-overview-step0.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="A globe at the centre of the lecture overview"
+  />
+  <img v-click="1"
+    src="./figures/geospatial-data-sources-overview-step1.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 1: Coordinates and Reference Systems"
+  />
+  <img v-click="2"
+    src="./figures/geospatial-data-sources-overview-step2.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 2: Remote Sensing"
+  />
+  <img v-click="3"
+    src="./figures/geospatial-data-sources-overview-step3.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 3: Geo-information Systems"
+  />
+  <img v-click="4"
+    src="./figures/geospatial-data-sources-overview-step4.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 4: Earth System Models"
+  />
 </div>
 
 ---
 layout: bonn-section
-sectionColor: "#f2c300"
+sectionColor: "#23B931"
 section: coordinates
 sectionTitle: Coordinates
 ---
@@ -63,42 +64,6 @@ U.S. Government — Extracted from the PDF version of the
 <a href="http://www.disam.dsca.mil/pubs/archives.htm" target="_blank" rel="noopener noreferrer"><em>Vol 26-4 2004 DISAM Journal</em></a>
 (direct PDF <a href="http://www.disam.dsca.mil/pubs/Archives/Web%20Journal%2026-4.pdf" target="_blank" rel="noopener noreferrer">[1]</a>),
 via <a href="https://commons.wikimedia.org/wiki/File:Globe_Atlantic.svg" target="_blank" rel="noopener noreferrer">Wikipedia</a>.
-</div>
-
----
-
-# Coordinates and Location
-
-<blockquote>
-How many coordinates do we need to uniquely define a spatio-temporal location?
-</blockquote>
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div class="p-5 rounded-xl border box-card box-1">
-<h3>3 spatial dimensions</h3>
-
-<div class="mt-4 text-lg leading-snug text-blue-800">
-<span class="font-serif italic">Cartesian (x, y, z)</span> or <span class="font-serif italic"> Spherical/Ellipsoidal (λ, φ, r)</span> or <span class="font-serif italic">or UTM Projections (Easting, Northing, Height)</span>
-</div>
-
-<div class="mt-3 text-gray-700">
-Where is it in space?
-</div>
-</div>
-
-<div class="p-5 rounded-xl border box-card box-2">
-<h3>1 temporal dimension</h3>
-
-<div class="mt-4 text-2xl text-blue-800">
-<span class="font-serif italic">t</span>
-</div>
-
-<div class="mt-3 text-gray-700">
-When does it occur?
-</div>
-</div>
-
 </div>
 
 ---
@@ -273,6 +238,60 @@ WGS 84 is the global reference system used by GPS and most web mapping workflows
 
 ---
 
+# Map Projections
+
+<img
+  src="./figures/orange-peeled.png"
+  class="w-full h-[300px] object-contain mt-3"
+  alt="A world map drawn on a peeled orange skin, laid flat in lobes"
+/>
+
+<div class="mt-2 text-[1.02rem] leading-snug text-center text-gray-700">
+Flattening a sphere onto a plane always stretches, tears, or squashes something.
+</div>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-center text-gray-500">
+  Illustration: Michael Kline, <a href="https://dogfoose.com/2011/09/how-to-peel-a-planet/" target="_blank" rel="noopener noreferrer"><em>How To Peel a Planet</em></a>, Dogfoose.com (2011).
+</div>
+
+---
+layout: bonn-two-cols-header
+---
+
+# Equal Angle vs Equal Area
+
+::left::
+
+<div class="text-[0.92rem] leading-snug text-gray-700">
+
+No flat map can preserve all of these at once. Every projection is a **trade-off**:
+
+<ul class="mt-2 space-y-1 list-disc pl-5">
+  <li><strong>Angles</strong> (conformal), e.g. Mercator</li>
+  <li><strong>Area</strong> (equal-area), e.g. Equal Earth</li>
+  <li><strong>Distance</strong> (equidistant), along selected lines</li>
+</ul>
+
+<div class="mt-4 p-3 rounded-lg bg-blue-50 border border-blue-200 text-[0.82rem] text-blue-900">
+On 4 September 2026, the UN General Assembly voted 164–1 to adopt the <strong>"Correct the Map"</strong> resolution. Sponsored by Togo and the African Union, the non-binding vote encourages replacing the 16th-century Mercator projection with the 2018 <strong>Equal Earth</strong> projection to represent Africa's true size.
+</div>
+
+</div>
+
+::right::
+
+<img
+  src="./figures/guardian-mercator-equal-earth.jpg"
+  class="w-full h-auto rounded-lg"
+  alt="Mercator map in blue overlaid with an Eckert IV equal-area map in orange: Greenland, North America, and Russia shrink, while Africa and South America keep their true relative size"
+/>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+  Mercator (blue) vs an equal-area projection, Eckert IV (orange). Image: The Guardian.
+</div>
+
+---
+
 # Cylindrical Map Projections and Web Mercator
 
 <div class="grid grid-cols-[0.9fr_1.1fr] gap-6 mt-3 items-stretch">
@@ -305,10 +324,14 @@ Cylindrical projections minimize distortion along their standard line(s).
 Web Mercator is the projection used by many web maps. It is a cylindrical, conformal projection: local shapes are preserved, but areas grow strongly toward the poles.
 
 <img
-  src="./figures/Equirectangular_projection_SW.jpg"
+  src="./figures/Mercator_projection_Square.jpg"
   class="mt-2 w-full h-[150px] object-contain rounded-xl"
-  alt="World map in a rectangular projection"
+  alt="World map in the Mercator projection, with areas growing toward the poles"
 />
+
+<div class="figure-copyright">
+Figure: <a href="https://commons.wikimedia.org/wiki/File:Mercator_projection_Square.JPG" target="_blank" rel="noopener noreferrer">Strebe / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+</div>
 
 <blockquote style="margin-top: auto; min-height: 3.1rem;">
 Web maps trade area accuracy for visually stable local shapes and simple tiled rendering.
@@ -465,7 +488,7 @@ Earth observations contain processes at many characteristic temporal frequencies
 
 ---
 layout: bonn-section
-sectionColor: "#4f50ba"
+sectionColor: "#00457C"
 section: remote-sensing
 sectionTitle: Remote Sensing
 ---
@@ -480,26 +503,7 @@ Campbell &amp; Shin (2011), Figure 1.8.
 </a>
 </div>
 
----
-section: remote-sensing
-sectionTitle: Remote Sensing
----
-
-# Overview Section - Data Sources
-
-<div class="relative flex justify-center h-[360px] mt-1">
-  <img
-    src="./figures/geospatial-data-sources-overview.svg"
-    class="w-full h-[360px] object-contain"
-    alt="A globe surrounded by the three themes Remote Sensing, Geo-information Systems, and Models and Re-analysis Products"
-  />
-  <img
-    src="./figures/Globe_Atlantic.svg"
-    class="absolute left-1/2 top-[72px] w-[204px] h-[205px] -translate-x-1/2 object-contain drop-shadow-lg"
-    alt="Globe centered on the Atlantic Ocean"
-  />
-</div>
-
+<!--
 ---
 section: remote-sensing
 sectionTitle: Remote Sensing
@@ -520,6 +524,50 @@ sectionTitle: Remote Sensing
   />
 </div>
 
+-->
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Lecture Overview
+
+<img
+  src="./figures/geospatial-data-sources-overview-step2.svg"
+  class="w-full h-[360px] object-contain mt-1"
+  alt="Lecture overview, step 2 of 4: now at Remote Sensing"
+/>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Remote Sensing
+## Identifying, observing, and measuring an object without coming into direct contact with it.
+
+<div>
+  <video controls preload="metadata" playsinline class="w-full h-[300px] object-contain" aria-label="Remote sensing animation from NASA's Goddard Space Flight Center" src="https://svs.gsfc.nasa.gov/vis/a030000/a030800/a030892/remote_sensing_anim-HW-3.5.26a-1080p.mp4">
+    <a href="https://svs.gsfc.nasa.gov/vis/a030000/a030800/a030892/remote_sensing_anim-HW-3.5.26a-1080p.mp4">Watch the remote sensing animation</a>.
+  </video>
+</div>
+
+<div class="mt-3 text-[0.7rem] leading-snug text-gray-600">
+  <div>Credit: NASA's Goddard Space Flight Center, Animator: <a href="https://svs.gsfc.nasa.gov/search/?people=Amy%20Moran" target="_blank" rel="noopener noreferrer">Amy Moran</a> (Global Science and Technology, Inc.), Scientist: <a href="https://svs.gsfc.nasa.gov/search/?people=Matthew%20Rodell" target="_blank" rel="noopener noreferrer">Matthew Rodell</a> (NASA/GSFC) · <a href="https://orcid.org/0000-0003-0106-7437" target="_blank" rel="noopener noreferrer">ORCID</a></div>
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# European Earth Observation Satellites
+
+<img
+  src="./figures/Satellites.jpeg"
+  class="w-full h-[380px] object-contain"
+  alt="European satellite roadmap grouped into science missions, Copernicus Sentinels, and meteorological missions"
+/>
 
 ---
 section: remote-sensing
@@ -550,7 +598,7 @@ Sunlight → reflected → sensed by the satellite
 
 </div>
 
-<div>
+<div v-click="1">
 
 ## Active Remote Sensing
 
@@ -575,6 +623,40 @@ Satellite emits energy → reflected → sensed
 <!--
 Contrast passive sensors, which use sunlight, with active sensors, which emit their own signal. Use the examples to introduce optical, lidar, and radar observations.
 -->
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Electromagnetic Spectrum
+
+<img
+  src="./figures/electromagnetic-spectrum.png"
+  class="w-full h-[350px] object-contain"
+  alt="Electromagnetic spectrum showing wavelength, frequency, and the visible light range"
+/>
+
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Sources: <a href="https://earthdaily-earthone-cdn.s3.us-west-2.amazonaws.com/docs/6.0.1/public/_images/spectrum.png" target="_blank" rel="noopener noreferrer">EarthDaily</a> · <a href="https://www.miniphysics.com/electromagnetic-spectrum_25.html" target="_blank" rel="noopener noreferrer">miniphysics.com</a>
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Different Satellites - Different Spectral Bands
+
+<img
+  src="./figures/satellite-band-comparison.png"
+  class="w-full h-[350px] object-contain"
+  alt="Comparison of Landsat 7, Landsat 8, and Sentinel-2 spectral bands against atmospheric transmission"
+/>
+
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://landsat.gsfc.nasa.gov/wp-content/uploads/2015/06/Landsat.v.Sentinel-2.png" target="_blank" rel="noopener noreferrer">NASA Landsat</a> (Public domain) · <a href="https://www.usgs.gov/media/images/comparison-landsat-7-and-8-bands-sentinel-2" target="_blank" rel="noopener noreferrer">USGS copy</a>.
+</div>
 
 ---
 section: remote-sensing
@@ -619,6 +701,297 @@ sectionTitle: Remote Sensing
 
 </div>
 
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# 2D Frame Camera Arrays
+
+<div class="mt-5 text-center" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start;">
+  <div>
+    <img src="./figures/pentax-k10d-dslr.jpg" class="w-full h-[300px] object-contain" alt="Pentax K10D DSLR camera viewed from the front without a lens" />
+    <div class="mt-3 text-[0.95rem] font-semibold">DSLR camera</div>
+  </div>
+  <div>
+    <img src="./figures/ccd-detectors.jpg" class="w-full h-[300px] object-contain" alt="NASA JPL delta-doped CCD detector" />
+    <div class="mt-3 text-[0.95rem] font-semibold">CCD detector</div>
+  </div>
+</div>
+
+<div class="mt-6 text-[0.65rem] leading-snug text-gray-500">
+  <div>DSLR: <a href="https://commons.wikimedia.org/wiki/File:Pentax_K10D_front.jpg" target="_blank" rel="noopener noreferrer">Bill Bertram / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.5</a>. CCD: <a href="https://commons.wikimedia.org/wiki/File:Delta-Doped_Charged_Coupled_Devices_(CCD)_for_Ultra-Violet_and_Visible_Detection.jpg" target="_blank" rel="noopener noreferrer">NASA/JPL / Wikimedia Commons</a> · Public domain.</div>
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# 2D Frame Camera Arrays — PlanetScope
+
+## High-resolution satellite constellations
+
+<div class="mt-5 text-center" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start;">
+  <div>
+    <img src="./figures/planetscope-example.webp" class="w-full h-[260px] object-contain" alt="PlanetScope satellite image of Venice" />
+    <div class="mt-3 text-[0.95rem] font-semibold">PlanetScope image</div>
+  </div>
+  <div>
+    <img src="./figures/planetscope-dove.jpg" class="w-full h-[260px] object-contain" alt="Illustration of a PlanetScope Dove satellite above Earth" />
+    <div class="mt-3 text-[0.95rem] font-semibold">PlanetScope Dove</div>
+  </div>
+</div>
+
+<div class="mt-6 text-[0.65rem] leading-snug text-gray-500">
+  <div>Satellite image: <a href="https://docs.planet.com/data/imagery/planetscope/thumbnail.webp" target="_blank" rel="noopener noreferrer">Planet</a>. Dove: <a href="https://eo.belspo.be/sites/default/files/styles/large/public/satellites/dove.jpg?itok=lzv1Bbke" target="_blank" rel="noopener noreferrer">BELSPO Earth Observation</a>.</div>
+</div>
+
+<!--
+The CCD photograph on the preceding slide illustrates a general sensor concept; it is not a photograph of the Dove camera sensor.
+-->
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Whisk-broom Scanners
+
+## E.g., Landsat series up to 7
+
+<div class="mt-5 text-center" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start;">
+  <div>
+    <img src="./figures/whisk-broom-satellite.png" class="w-full h-[220px] object-contain block" alt="Whisk-broom satellite scanning across its ground track" />
+    <div class="mt-3 text-[0.95rem] font-semibold">Whisk-broom scanning</div>
+  </div>
+  <div>
+    <img src="./figures/whiskbroom-visualization.gif" class="w-full h-[220px] object-contain block" alt="Animation of scanning successive rows in alternating directions" />
+    <div class="mt-3 text-[0.95rem] font-semibold">Building an image</div>
+  </div>
+  <div>
+    <img src="./figures/spectrometer.svg" class="w-full h-[220px] object-contain block" alt="Diagram of a spectrometer separating light into wavelengths" />
+    <div class="mt-3 text-[0.95rem] font-semibold">Spectrometer</div>
+  </div>
+</div>
+
+<div class="mt-6 text-[0.65rem] leading-snug text-gray-500">
+  Sources: <a href="https://commons.wikimedia.org/wiki/File:Whisk_broom_satellite.svg" target="_blank" rel="noopener noreferrer">CMG Lee, Chris 73 &amp; Emoji One contributors</a> · <a href="https://commons.wikimedia.org/wiki/File:Whiskbroom_visualization.gif" target="_blank" rel="noopener noreferrer">Ccarmour</a> · <a href="https://commons.wikimedia.org/wiki/File:Spectrometer.svg" target="_blank" rel="noopener noreferrer">Jooja</a> / Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+</div>
+
+---
+
+# Landsat Series
+
+<img
+  src="./figures/landsat-missions-timeline.png"
+  class="w-full h-[370px] object-contain"
+  alt="USGS timeline of Landsat missions from 1972, with examples of Earth observation imagery"
+/>
+
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/media/images/2026-05-8461-Landsat%20_Missions_timeline_graphic.png?itok=JhMkATIA" target="_blank" rel="noopener noreferrer">USGS — Landsat Missions</a>.
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Landsat Series — Las Vegas
+
+<div>
+  <video controls preload="metadata" playsinline class="w-full h-[320px] object-contain" aria-label="Landsat animation showing changes in Las Vegas" src="https://svs.gsfc.nasa.gov/vis/a030000/a030200/a030215/landsat_las_vegas_animation_720p.webm">
+    <a href="https://svs.gsfc.nasa.gov/vis/a030000/a030200/a030215/landsat_las_vegas_animation_720p.webm">Watch the Las Vegas animation</a>.
+  </video>
+  <div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+    Source: <a href="https://svs.gsfc.nasa.gov/vis/a030000/a030200/a030215/landsat_las_vegas_animation_720p.webm" target="_blank" rel="noopener noreferrer">NASA Scientific Visualization Studio — Las Vegas</a>.
+  </div>
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Push-broom Scanners
+
+## E.g., Sentinel-2
+
+<div class="grid grid-cols-3 gap-6 mt-3">
+
+<div>
+
+<h2 style="font-size: 1.2rem; line-height: 1.3; height: 2em; margin: 0 0 12px;">Push-broom</h2>
+
+<img
+  src="./figures/Push_broom_satellite.svg.webp"
+  class="w-full h-[180px] object-contain block"
+  alt="Push-broom sensor recording a full line across the satellite's ground track"
+/>
+
+<div class="mt-3" style="font-size: 1rem; line-height: 1.375;">
+<strong>Detector row:</strong> captures a whole line at once.
+</div>
+
+</div>
+
+<div>
+
+<h2 style="font-size: 1.2rem; line-height: 1.3; height: 2em; margin: 0 0 12px;">Building an Image</h2>
+
+<img
+  src="./figures/Push_broom_scanner_visualization.gif"
+  class="w-full h-[180px] object-contain block"
+  alt="Animation showing a push-broom scanner building a raster image line by line"
+/>
+
+<div class="mt-3" style="font-size: 1rem; line-height: 1.375;">
+Satellite motion adds new lines → <strong>raster image</strong>.
+</div>
+
+</div>
+
+<div>
+
+<h2 style="font-size: 1.2rem; line-height: 1.3; height: 2em; margin: 0 0 12px;">Sentinel-2 MSI Detectors</h2>
+
+<img
+  src="./figures/msi-focal-plane.png"
+  class="w-full h-[140px] object-contain block"
+  alt="Sentinel-2 MSI focal plane with twelve detector modules arranged in two staggered rows"
+/>
+
+<div class="mt-1 text-[0.6rem] leading-tight text-gray-500">
+  Credit: Astrium SAS (France) and e2v Technologies (UK), via <a href="https://sentiwiki.copernicus.eu/" target="_blank" rel="noopener noreferrer">SentiWiki</a>.
+</div>
+
+<img
+  src="./figures/msi-parallax.png"
+  class="mt-2 w-full h-[75px] object-contain block"
+  alt="Diagram of staggered MSI detector modules with overlapping areas and the cross-band and cross-detector parallax"
+/>
+
+<div class="mt-1 text-[0.6rem] leading-tight text-gray-500">
+  Parallax figure derived from MSI instrument documentation, via <a href="https://sentiwiki.copernicus.eu/" target="_blank" rel="noopener noreferrer">SentiWiki</a>.
+</div>
+
+</div>
+
+</div>
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Example Sentinel-2 Constellation
+
+## Three Satellites (2015, 2017, and 2024)
+
+<div class="grid grid-cols-2 gap-8 mt-3 items-start">
+
+<div>
+
+<img
+  src="./figures/sentinel-2-mapping-in-colour.png"
+  class="w-full h-[280px] object-contain block"
+  alt="ESA illustration of Sentinel-2 observing Earth in multiple spectral bands"
+/>
+
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://www.esa.int/var/esa/storage/images/esa_multimedia/videos/2015/04/mapping_in_colour/15351785-1-eng-GB/Mapping_in_colour_pillars.png" target="_blank" rel="noopener noreferrer">ESA — Mapping in colour</a>.
+</div>
+
+</div>
+
+<div>
+
+<video controls preload="metadata" playsinline class="w-full h-[280px] object-contain block" aria-label="ESA video about Sentinel-2" src="https://dlmultimedia.esa.int/download/public/videos/2016/08/004/1608_004_AR_EN.mp4">
+  <a href="https://dlmultimedia.esa.int/download/public/videos/2016/08/004/1608_004_AR_EN.mp4">Watch the ESA Sentinel-2 video</a>.
+</video>
+
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://dlmultimedia.esa.int/download/public/videos/2016/08/004/1608_004_AR_EN.mp4" target="_blank" rel="noopener noreferrer">ESA</a>.
+</div>
+
+</div>
+
+</div>
+
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Task: Explain the Plane Rainbow
+
+<div class="grid grid-cols-[3fr_2fr] gap-8 mt-3 items-center">
+
+<div>
+  <img
+    src="./figures/flying_plane_s2.png"
+    class="w-full h-[320px] object-contain rounded-xl"
+    alt="Sentinel-2 image of an aircraft over the sea appearing as several colour-shifted copies along its flight path"
+  />
+</div>
+
+<div>
+
+Sentinel-2 captured an aircraft flying over the sea.
+
+Why does the plane appear **several times, in different colours**?
+
+<blockquote>
+Hint: think back to the push-broom detector layout.
+</blockquote>
+
+<div class="mt-6 text-[0.65rem] leading-snug text-gray-500">
+  Source: P. Heiselberg &amp; H. Heiselberg (2021). <a href="https://www.mdpi.com/2072-4292/13/15/3016" target="_blank" rel="noopener noreferrer"><em>Aircraft Detection above Clouds by Sentinel-2 MSI Parallax</em></a>. Remote Sensing 13(15), 3016. CC BY 4.0.
+</div>
+
+</div>
+
+</div>
+
+<!--
+Solution: The MSI band detectors sit at different positions in the focal plane, so each band views the same ground point at a slightly different time (fractions of a second to a few seconds apart, depending on the bands) and from a slightly different angle. Static objects are co-registered on the ground, but a fast-moving aircraft at altitude has moved between the band acquisitions, and its height adds parallax. Each band therefore records the plane at a different position, producing the "rainbow" of red, green, and blue copies. Heiselberg & Heiselberg use this offset to estimate aircraft speed, heading, and altitude.
+-->
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Spatial-Temporal-Spectral Juggling
+
+<div class="grid grid-cols-2 gap-8 mt-3 items-center">
+
+<div class="text-[1.02rem] leading-snug text-gray-700">
+
+Ultimately, it is about **photon energy hitting the pixels of a sensor**.
+
+<ol class="mt-4 space-y-3 list-decimal pl-5">
+  <li><strong>Spatial resolution:</strong> if a pixel covers only a small ground area, few photons are reflected into it.</li>
+  <li><strong>Spectral resolution:</strong> if a pixel captures only a narrow range of wavelengths, it receives less energy, so the pixels need to be larger.</li>
+  <li><strong>Temporal resolution:</strong> medium-resolution satellites capture wide swaths daily or weekly; high-resolution satellites only capture a small area per overpass.</li>
+</ol>
+
+</div>
+
+<div>
+  <img
+    src="./figures/Juggling.png"
+    class="w-full h-[330px] object-contain"
+    alt="A person juggling three balls labelled spatial, spectral, and temporal resolution, powered by a limited amount of available light hitting a sensor on their chest"
+  />
+  <div class="mt-1 text-[0.65rem] leading-snug text-center text-gray-500">
+    Image: ChatGPT-generated.
+  </div>
+</div>
+
+</div>
 
 ---
 section: remote-sensing
@@ -707,19 +1080,72 @@ Sunlight → reflected → sensed by the satellite
 <div class="mt-1 text-left text-[1.08rem] leading-[1.2] text-gray-700">
 
 <ul class="mt-2 space-y-2 text-left">
-  <li>Uses reflected sunlight by day or emitted thermal radiation day and night.</li>
-  <li>Clouds and the atmosphere can obscure optical observations.</li>
-  <li>Resolution trade-offs span space, spectrum, time, and radiometry.</li>
-  <li>Higher spatial resolution does not inherently mean fewer bands.</li>
-  <li>Very-high-resolution imagery is often commercial; coarser data are often open.</li>
-  <li>Coarser sensors usually cover wider areas more frequently.</li>
-  <li>Illumination and viewing geometry affect the signal.</li>
-  <li>Natural-colour imagery is intuitive; reflectance requires atmospheric correction.</li>
+  <li>Measures <strong>reflected sunlight</strong> or <strong>heat emitted by Earth</strong>.</li>
+  <li>Sunlight-based images need daylight; thermal images work <strong>day and night</strong>.</li>
+  <li><strong>Clouds can block the view</strong> of the surface.</li>
+  <li>Different spectral bands help distinguish <strong>water, vegetation, and built-up areas</strong>.</li>
+  <li>Choose data based on the <strong>detail, coverage, and update frequency</strong> you need.</li>
 </ul>
 
 </div>
 
 </div>
+
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
+# Active Remote Sensing
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+
+<div>
+
+## Passive Remote Sensing
+
+<img
+  src="./figures/passive-remote-sensing.png"
+  class="w-full h-[205px] object-contain rounded-xl"
+  alt="Passive remote sensing using sunlight reflected from Earth's surface"
+/>
+
+<div class="mt-3 text-[1.02rem] leading-snug text-center text-gray-700">
+Sunlight → reflected → sensed by the satellite
+</div>
+
+<div class="mt-3 text-center">
+<strong class="text-blue-800">Example:</strong> optical satellites
+</div>
+
+</div>
+
+<div>
+
+## Active Remote Sensing
+
+<img
+  src="./figures/active-remote-sensing.png"
+  class="w-full h-[205px] object-contain rounded-xl"
+  alt="Active remote sensing using energy emitted by a satellite and reflected from Earth's surface"
+/>
+
+<div class="mt-3 text-[1.02rem] leading-snug text-center text-gray-700">
+Satellite emits energy → reflected → sensed
+</div>
+
+<div class="mt-3 text-center">
+<strong class="text-blue-800">Examples:</strong> nadir lidar and side-looking radar
+</div>
+
+</div>
+
+</div>
+
+<!--
+Contrast passive sensors, which use sunlight, with active sensors, which emit their own signal. Use the examples to introduce optical, lidar, and radar observations.
+-->
 
 ---
 section: remote-sensing
@@ -850,7 +1276,56 @@ section: remote-sensing
 sectionTitle: Remote Sensing
 ---
 
+# Takeaways --- Active Remote Sensing
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+
+<div>
+
+<img
+  src="./figures/active-remote-sensing.png"
+  class="w-full h-[205px] object-contain rounded-xl"
+  alt="Active remote sensing: sensor emits its own signal and measures the return"
+/>
+
+<div class="mt-3 text-[1.02rem] leading-snug text-center text-gray-700">
+Sensor emits signal → return measured
+</div>
+
+<div class="mt-3 text-center">
+<strong class="text-blue-800">Examples:</strong> SAR, LiDAR, radar altimetry
+</div>
+
+</div>
+
+<div class="mt-1 text-left text-[1.08rem] leading-[1.2] text-gray-700">
+
+<ul class="mt-2 space-y-2 text-left">
+  <li>Carries its own illumination — <strong>independent of sunlight</strong>, enabling imaging at night and in polar winter.</li>
+  <li><strong>Penetrates clouds</strong> and light rain (radar), overcoming a key limitation of optical sensors.</li>
+  <li>Measures <strong>physical surface properties</strong> directly: backscatter, elevation, distance, or canopy structure.</li>
+  <li>SAR captures <strong>surface roughness, moisture, and deformation</strong> through phase and amplitude.</li>
+  <li>Radar altimetry delivers precise <strong>surface height</strong> along nadir tracks — not a full 2D image.</li>
+  <li>LiDAR records <strong>3D point clouds</strong>: tree height, building geometry, terrain beneath vegetation.</li>
+  <li>Shorter wavelengths (LiDAR) give finer detail; longer wavelengths (L-band radar) penetrate canopy and soil.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!--
+Contrast with passive sensing: active sensors are self-illuminating, all-weather capable, and measure geometry and physical properties rather than reflected radiance. Emphasise night/cloud capability and the variety of active modalities: SAR, altimetry, LiDAR.
+-->
+
+---
+section: remote-sensing
+sectionTitle: Remote Sensing
+---
+
 # Gravity Measurements from Two Satellites
+
+## Other Remote Sensing: Satellite Gravimetry
 
 <div class="grid grid-cols-3 gap-5 mt-2 items-start text-center">
 
@@ -911,60 +1386,13 @@ sectionTitle: Remote Sensing
 </div>
 
 <!--
-Introduce GRACE as an active measurement system that infers Earth's changing gravity field from two satellites flying in formation. Use the rotating geoid to show the resulting global representation.
--->
-
----
-section: remote-sensing
-sectionTitle: Remote Sensing
----
-
-# Takeaways --- Active Remote Sensing
-
-<div class="grid grid-cols-2 gap-8 mt-2">
-
-<div>
-
-<img
-  src="./figures/active-remote-sensing.png"
-  class="w-full h-[205px] object-contain rounded-xl"
-  alt="Active remote sensing: sensor emits its own signal and measures the return"
-/>
-
-<div class="mt-3 text-[1.02rem] leading-snug text-center text-gray-700">
-Sensor emits signal → return measured
-</div>
-
-<div class="mt-3 text-center">
-<strong class="text-blue-800">Examples:</strong> SAR, LiDAR, radar altimetry
-</div>
-
-</div>
-
-<div class="mt-1 text-left text-[1.08rem] leading-[1.2] text-gray-700">
-
-<ul class="mt-2 space-y-2 text-left">
-  <li>Carries its own illumination — <strong>independent of sunlight</strong>, enabling imaging at night and in polar winter.</li>
-  <li><strong>Penetrates clouds</strong> and light rain (radar), overcoming a key limitation of optical sensors.</li>
-  <li>Measures <strong>physical surface properties</strong> directly: backscatter, elevation, distance, or canopy structure.</li>
-  <li>SAR captures <strong>surface roughness, moisture, and deformation</strong> through phase and amplitude.</li>
-  <li>Radar altimetry delivers precise <strong>surface height</strong> along nadir tracks — not a full 2D image.</li>
-  <li>LiDAR records <strong>3D point clouds</strong>: tree height, building geometry, terrain beneath vegetation.</li>
-  <li>Shorter wavelengths (LiDAR) give finer detail; longer wavelengths (L-band radar) penetrate canopy and soil.</li>
-</ul>
-
-</div>
-
-</div>
-
-<!--
-Contrast with passive sensing: active sensors are self-illuminating, all-weather capable, and measure geometry and physical properties rather than reflected radiance. Emphasise night/cloud capability and the variety of active modalities: SAR, altimetry, LiDAR.
+GRACE fits neither the passive nor the active category: it does not image the surface, but infers Earth's changing gravity field from two satellites flying in formation. Use the rotating geoid to show the resulting global representation.
 -->
 
 
 ---
 layout: bonn-section
-sectionColor: "#4f50ba"
+sectionColor: "#F2C300"
 section: geo-information-science
 sectionTitle: Geo-information Science
 ---
@@ -979,12 +1407,61 @@ Campbell &amp; Shin (2011), Figure 1.8.
 </a>
 </div>
 
+
 ---
 section: geo-information-science
 sectionTitle: Geo-information Science
 ---
 
-# Geo-information Science
+# Lecture Overview
+
+<img
+  src="./figures/geospatial-data-sources-overview-step3.svg"
+  class="w-full h-[360px] object-contain mt-1"
+  alt="Lecture overview, step 3 of 4: now at Geo-information Systems"
+/>
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+---
+
+# We also gather a lot of Spatial Information
+
+<div class="flex justify-center gap-10 mt-3 items-start">
+
+<div class="text-center">
+  <img
+    src="./figures/smartphone-gps.jpg"
+    class="h-[300px] w-auto mx-auto"
+    alt="Samsung Galaxy S8 smartphone showing its home screen"
+  />
+  <div class="mt-2 text-[1.02rem] font-semibold text-blue-800">📍 GPS location</div>
+  <div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+    <a href="https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S8_Duos,_Startbildschirm.JPG" target="_blank" rel="noopener noreferrer">C.Stadler/Bwag / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+  </div>
+</div>
+
+<div class="text-center">
+  <img
+    src="./figures/geodata_bonn.png"
+    class="h-[300px] w-auto mx-auto rounded-xl border border-gray-200"
+    alt="Offene Geodaten Bonn portal showing open city datasets on an OpenStreetMap map of Bonn"
+  />
+  <div class="mt-2 text-[1.02rem] font-semibold text-blue-800">Open city geodata: Offene Geodaten Bonn</div>
+  <div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+    Screenshot: Offene Geodaten Bonn · Map data © OpenStreetMap contributors
+  </div>
+</div>
+
+</div>
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+---
+
+# Vector and Raster Data
 
 <div class="grid grid-cols-[1fr_2fr] gap-8 mt-1 items-center">
 
@@ -1003,11 +1480,11 @@ GIS organises geographic information as **stacked, queryable layers** — each l
 
 <div class="mt-4 grid grid-cols-2 gap-3">
   <div class="p-3 rounded-xl bg-green-50 border border-green-200">
-    <div class="font-semibold text-green-800 mb-1">Vector layers</div>
+    <div class="font-semibold text-green-800 mb-1">Vector data</div>
     <div class="text-[0.85rem]">Points, lines, polygons + attribute table</div>
   </div>
   <div class="p-3 rounded-xl bg-blue-50 border border-blue-200">
-    <div class="font-semibold text-blue-800 mb-1">Raster layers</div>
+    <div class="font-semibold text-blue-800 mb-1">Raster data</div>
     <div class="text-[0.85rem]">Grids of continuous values: elevation, imagery</div>
   </div>
 </div>
@@ -1023,6 +1500,73 @@ GIS organises geographic information as **stacked, queryable layers** — each l
 <!--
 GIS organises thematic information in layers that can be overlaid, queried, and analysed spatially. Each layer is either a vector dataset (geometry + attributes) or a raster grid. Combining layers from different sources — roads, parcels, land cover, elevation — is the core power of GIS.
 -->
+
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+---
+
+# Raster Data
+
+<div class="grid grid-cols-2 gap-8 mt-3 items-start">
+
+<div>
+
+## A Grid of Cells
+
+<img
+  src="./figures/arcgis-raster-cells.png"
+  class="w-full h-[230px] object-contain"
+  alt="A land-cover map zoomed into a grid of square cells, each cell holding one value"
+/>
+
+<div class="mt-3 text-[1.02rem] leading-snug text-gray-700">
+A raster divides space into a regular grid of <strong>cells (pixels)</strong>, each holding one value.
+</div>
+
+</div>
+
+<div>
+
+## Area or Center?
+
+<div class="text-[1.02rem] leading-snug text-gray-700">
+Does the value refer to the whole cell area or just its center? <strong>It depends on the data.</strong>
+</div>
+
+<img
+  src="./figures/arcgis-cell-value-area-vs-center.gif"
+  class="mt-2 w-full h-[260px] object-contain"
+  alt="Comparison of cell values that apply to the center point of a cell, such as elevation, and values that apply to the whole cell area"
+/>
+
+</div>
+
+</div>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Figures: <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm" target="_blank" rel="noopener noreferrer">Esri — ArcMap documentation, <em>What is raster data?</em></a>
+</div>
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+---
+
+# Raster Coordinates
+
+<img
+  src="./figures/arcgis-raster-coordinates.gif"
+  class="w-full h-[340px] object-contain mt-3"
+  alt="The same raster cell located by column and row in a Cartesian grid (5, 1) and by easting and northing in a UTM-projected coordinate system (300,500 E, 5,900,600 N)"
+/>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Figure: <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm" target="_blank" rel="noopener noreferrer">Esri — ArcMap documentation, <em>What is raster data?</em></a>
+</div>
+
+
 
 ---
 section: geo-information-science
@@ -1096,6 +1640,94 @@ sectionTitle: Geo-information Science
 # Explore Vector Geometries
 
 <GeoJsonFeatureExplorer />
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+---
+
+# Processing Geospatial Data - Locally
+
+<div class="grid grid-cols-2 gap-8 mt-3 items-start">
+
+<div>
+
+## GUI-based Programs
+
+<div class="text-[1.02rem] leading-snug text-gray-700">
+Mainly <strong>ArcGIS</strong> (commercial) and <strong>QGIS</strong> (open source).
+</div>
+
+<img
+  src="./figures/qgis-main-share.webp"
+  class="mt-4 w-full h-[240px] object-contain rounded-xl"
+  alt="QGIS desktop application showing a map project"
+/>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+  Image: <a href="https://qgis.org/" target="_blank" rel="noopener noreferrer">QGIS</a>
+</div>
+
+</div>
+
+<div>
+
+## CLI-based
+
+<div class="flex items-center gap-3 text-[1.02rem] leading-snug text-gray-700">
+  <img src="./figures/gdal-logo.png" class="h-[44px] w-auto" alt="GDAL logo" />
+  <div><a href="https://gdal.org/" target="_blank" rel="noopener noreferrer"><strong>G</strong>eospatial <strong>D</strong>ata <strong>A</strong>bstraction <strong>L</strong>ibrary (GDAL)</a></div>
+</div>
+
+<img
+  src="./figures/open-source-infrastructure.png"
+  class="mt-3 h-[230px] w-auto mx-auto"
+  alt="xkcd comic: a tower of blocks labelled all modern digital infrastructure, resting on one tiny block labelled a project some random person in Nebraska has been thanklessly maintaining since 2003"
+/>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+  Comic: <a href="https://xkcd.com/2347/" target="_blank" rel="noopener noreferrer">xkcd 2347 — Dependency</a> · <a href="https://creativecommons.org/licenses/by-nc/2.5/" target="_blank" rel="noopener noreferrer">CC BY-NC 2.5</a>. GDAL logo: <a href="https://commons.wikimedia.org/wiki/File:GDALLogoColor.svg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
+</div>
+
+</div>
+
+</div>
+
+---
+section: geo-information-science
+sectionTitle: Geo-information Science
+layout: bonn-two-cols-header
+---
+
+# Processing Geospatial Data - On Server Infrastructure
+
+::left::
+
+## Google Earth Engine
+
+<div class="text-[0.95rem] leading-snug text-gray-700">
+
+<ul class="space-y-2 list-disc pl-5">
+  <li>Petabyte-scale <strong>catalog</strong> of satellite imagery, climate, and model data.</li>
+  <li>Processing runs on <strong>Google's servers</strong>: the code goes to the data, not the other way round.</li>
+  <li>Scripted in <strong>JavaScript</strong> (Code Editor) or <strong>Python</strong>.</li>
+  <li>Free for research and education; commercial use is paid.</li>
+</ul>
+
+</div>
+
+::right::
+
+<img
+  src="./figures/EarthEngine.png"
+  class="w-full h-auto rounded-lg border border-gray-200"
+  alt="Google Earth Engine Code Editor with script panel, code editor, inspector, and a map of Europe"
+/>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+  Screenshot: <a href="https://code.earthengine.google.com/" target="_blank" rel="noopener noreferrer">Google Earth Engine Code Editor</a>
+</div>
+
 ---
 section: geo-information-science
 sectionTitle: Geo-information Science
@@ -1521,124 +2153,188 @@ Real world → thematic layers → analysis
 
 ---
 layout: bonn-section
-sectionColor: "#4f50ba"
+sectionColor: "#4F50BA"
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
 ---
 
-# Models and Re-analysis Products
+# Earth System Models
+
+<img class="bonn-section-image-sm" src="./figures/clima-earth-system-schematic.png" alt="CliMA schematic: a gridded global Earth model, a satellite, and a high-resolution local simulation box linked by arrows for learning, observing-system targeting and simulation, and driving" />
+
+<div class="bonn-section-citation">
+<a href="https://clima.caltech.edu/" target="_blank" rel="noopener noreferrer">
+Climate Modeling Alliance (CliMA), clima.caltech.edu.
+</a>
+</div>
 
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
+---
+
+# Lecture Overview
+
+<img
+  src="./figures/geospatial-data-sources-overview-step4.svg"
+  class="w-full h-[360px] object-contain mt-1"
+  alt="Lecture overview, step 4 of 4: now at Earth System Models"
+/>
+
+---
+section: model-outputs
+sectionTitle: Earth System Models
+layout: bonn-two-cols-header
 ---
 
 # From Observations to Modelled Fields
 
-<div class="mt-2 text-[1.15rem] text-blue-900 font-semibold">
-Combine observations with physical models to estimate how Earth's systems evolve.
+::left::
+
+
+<div class="p-2.5 rounded-xl border border-blue-200 bg-blue-50">
+  <div class="text-lg font-bold text-blue-900">Data Observations</div>
+  <div class="text-[0.8rem] text-gray-600">Satellites, stations, buoys, profiles</div>
 </div>
 
-<div class="grid grid-cols-[1fr_52px_1.35fr_52px_1fr] gap-3 mt-7 items-center text-center">
+<div class="text-2xl leading-none text-blue-700 my-1 text-center">↓</div>
 
-<div class="p-5 rounded-xl border border-blue-200 bg-blue-50">
-  <div class="text-xl font-bold text-blue-900">Observations</div>
+<div class="p-2.5 rounded-xl border border-violet-200 bg-violet-50">
+  <div class="text-lg font-bold text-violet-900">Data Assimilation in Physical Models</div>
+  <div class="text-[0.8rem] text-gray-600">Observations update the model state</div>
 </div>
 
-<div class="text-3xl text-blue-700">→</div>
+<div class="text-2xl leading-none text-blue-700 my-1 text-center">↓</div>
 
-<div class="p-5 rounded-xl border border-violet-200 bg-violet-50">
-  <div class="text-xl font-bold text-violet-900">Model + data assimilation</div>
+<div class="p-2.5 rounded-xl border border-teal-200 bg-teal-50">
+  <div class="text-lg font-bold text-teal-900">Simulation</div>
+  <div class="text-[0.8rem] text-gray-600">Fields across space, time, and height or depth</div>
 </div>
 
-<div class="text-3xl text-blue-700">→</div>
 
-<div class="p-5 rounded-xl border border-teal-200 bg-teal-50">
-  <div class="text-xl font-bold text-teal-900">Estimated fields</div>
-</div>
+::right::
 
-</div>
-
-<ul class="mt-7 space-y-2 text-[0.98rem] leading-snug text-gray-700">
-  <li>Satellites, stations, buoys, and profiles provide observations.</li>
-  <li>Physical models describe evolution; data assimilation updates the model state.</li>
-  <li>Outputs describe conditions across space, time, and height or depth.</li>
-</ul>
+  <img
+    src="./figures/clima-earth-system-schematic.png"
+    class="w-full h-[330px] object-contain"
+    alt="CliMA schematic: a gridded global Earth model, a satellite, and a high-resolution local simulation box linked by arrows for learning, observing-system targeting and simulation, and driving"
+  />
+  <div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+    Figure: <a href="https://clima.caltech.edu/" target="_blank" rel="noopener noreferrer">Climate Modeling Alliance (CliMA), clima.caltech.edu</a>.
+  </div>
 
 <!--
+Satellites, stations, buoys, and profiles provide observations. Physical models describe how the system evolves; data assimilation updates the model state with the observations. The resulting simulations describe conditions across space, time, and height or depth.
+
 Not every model run assimilates observations. Remote-sensing and GIS products can also contain derived or modelled information; this section focuses on dynamic Earth-system models.
 -->
 
+
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
+layout: bonn-two-cols-header
 ---
 
-# Analysis, Forecast, Hindcast, Reanalysis, Projection
+# Familiar Example: Weather Forecast
 
-<div class="compact-table mt-4 text-[0.88rem]">
+::left::
 
-| Product | Purpose |
-|---|---|
-| **Analysis** | Estimate the state at a given time using a model and available observations. |
-| **Forecast** | Predict subsequent conditions from an initialized state. |
-| **Hindcast** | Run a model for a past period; assimilation depends on the experiment. |
-| **Reanalysis** | Reconstruct the past by assimilating archived observations with a consistent modelling system. |
-| **Climate projection** | Simulate possible future climate under specified forcing scenarios. |
+<img
+  src="./figures/bbc-weather-presenter.jpg"
+  class="w-[80%] h-auto rounded-xl"
+  alt="A BBC weather presenter in front of a UK weather map with sun, cloud, and snow symbols"
+/>
 
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Image: BBC, via <a href="https://www.theguardian.com/uk/2010/oct/16/bbc-weathermen-being-moved-off-screen" target="_blank" rel="noopener noreferrer">The Guardian, 16 October 2010</a>.
 </div>
 
-<!--
-Hindcasts may also mean retrospective forecasts used to evaluate forecast skill.
+::right::
 
-Reanalysis uses a consistent model and assimilation system, but the observing network changes over time.
+<img
+  src="./figures/google-weather-bonn.png"
+  class="w-full h-auto"
+  alt="Google weather forecast for Bonn Südstadt: 14 °C and light rain, an hourly temperature curve, and an eight-day outlook"
+/>
 
-Climate projections describe conditional climate outcomes, not predictions of weather on a particular future date.
--->
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Screenshot: Google Weather.
+</div>
 
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
 ---
 
-# ERA5 — Reconstructing the Atmosphere
+# IFS — Integrated Forecasting System
+## Weather forecast model by the European Centre for Medium-Range Weather Forecasts (ECMWF)
+
+<EcmwfForecastDemo />
+
+<!--
+The chart is the latest ECMWF 00 or 12 UTC run (base time); drag the slider to step through the 10-day forecast (valid time). Each chart is fetched once and reused for 6 hours. Highlight that every forecast has both a base (initialisation) time and a valid time. Lines show 500 hPa geopotential height (~5.5 km), the upper-air flow pattern; colours show 850 hPa temperature (~1.5 km). The further the lead time, the larger the uncertainty.
+-->
+
+
+---
+section: model-outputs
+sectionTitle: Earth System Models
+---
+
+# ERA5 — ECMWF Re-Analysis (5th generation)
+## Atmospheric reanalysis of the global climate and weather since 1940
 
 <div class="grid grid-cols-2 gap-8 mt-3 items-stretch">
 
 <div class="flex flex-col">
 
-<ul class="space-y-3 text-[1.02rem] leading-snug text-gray-700">
-  <li>Global atmospheric reanalysis combining observations and a numerical model.</li>
-  <li>Temperature, wind, pressure, precipitation, and other variables.</li>
-  <li>Hourly fields at the surface and multiple atmospheric levels.</li>
-</ul>
+<div class="compact-table text-[0.72rem]">
 
-<div class="mt-6 p-3 rounded-lg bg-blue-50 border border-blue-200 text-[0.92rem] text-blue-900">
-  <strong>Example:</strong> At a location and time, retrieve estimated temperature and wind.
-</div>
-
-<div class="mt-auto text-[0.68rem] text-gray-500">
-Source: <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank" rel="noopener noreferrer">ECMWF ERA5</a>
-</div>
+| Data description | |
+|---|---|
+| **Projection** | Regular latitude-longitude grid |
+| **Horizontal coverage** | Global |
+| **Horizontal resolution** | Reanalysis: 0.25° × 0.25° (atmosphere), 0.5° × 0.5° (ocean waves)<br>Mean, spread and members: 0.5° × 0.5° (atmosphere), 1° × 1° (ocean waves) |
+| **Temporal coverage** | 1940 to present |
+| **Temporal resolution** | Hourly |
+| **Update frequency** | Daily |
 
 </div>
 
-<div class="min-h-[315px] rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center text-gray-400 text-lg">
-ERA5 example map
+<div class="mt-1 text-[0.65rem] text-gray-500">
+Source: <a href="https://cds.climate.copernicus.eu/" target="_blank" rel="noopener noreferrer">Copernicus Climate Data Store</a>
+</div>
+
+</div>
+
+<div class="flex flex-col items-center">
+  <img
+    src="./figures/era5-overview.png"
+    class="h-[300px] w-auto object-contain"
+    alt="ERA5 2 m temperature and mean sea level pressure over Europe, Africa, and the North Atlantic on 1 January 2023 at 00:00 UTC"
+  />
+  <div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+    Image: <a href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels" target="_blank" rel="noopener noreferrer">Copernicus Climate Data Store</a>
+  </div>
 </div>
 
 </div>
 
 <!--
+ERA5 is a global atmospheric reanalysis combining observations and a numerical model: temperature, wind, pressure, precipitation, and other variables as hourly fields at the surface and multiple atmospheric levels. Example: at a location and time, retrieve estimated temperature and wind.
+
 ERA5 variables include both analysis fields and quantities obtained from short model forecasts. Values are estimates with variable-dependent uncertainty.
 -->
 
+
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
 ---
 
-# HYCOM — Modelling the Ocean
+# HYCOM — HYbrid Coordinate Ocean Model
+## Ocean model by the U.S. National Ocean Partnership Program (NOPP)
 
 <div class="grid grid-cols-2 gap-8 mt-3 items-stretch">
 
@@ -1660,8 +2356,15 @@ Source: <a href="https://www.hycom.org/" target="_blank" rel="noopener noreferre
 
 </div>
 
-<div class="min-h-[315px] rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center text-gray-400 text-lg">
-HYCOM example map
+<div class="flex flex-col items-center">
+  <img
+    src="./figures/AtmosphericModelSchematic.png"
+    class="h-[300px] w-auto object-contain"
+    alt="Schematic of a global climate model: a horizontal latitude-longitude grid and vertical layers, with physical processes such as advection, radiation, heat, water, and momentum exchange between atmosphere, land, and ocean"
+  />
+  <div class="mt-1 text-[0.65rem] leading-snug text-gray-500">
+    Image: NOAA, via <a href="https://commons.wikimedia.org/wiki/File:AtmosphericModelSchematic.png" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> · Public domain
+  </div>
 </div>
 
 </div>
@@ -1672,20 +2375,160 @@ HYCOM is a model, not one uniquely defined dataset. The selected experiment dete
 
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
+layout: bonn-two-cols-header
 ---
 
-# Model Outputs as Geospatial Data
+# eCLM — Community Land Model 5.0 (CLM5)
+## Land surface model of the Community Earth System Model (CESM)
 
-<div class="mt-5 py-5 px-8 rounded-xl bg-blue-50 border border-blue-200 text-center">
-  <code class="text-[1.55rem] font-semibold text-blue-900">value = f(location, height/depth, time, variable)</code>
+::left::
+
+<div class="text-[0.95rem] leading-snug text-gray-700">
+
+**eCLM** is based on the **Community Land Model 5.0 (CLM5)**, the land component of the Community Earth System Model (CESM).
+
+<ul class="mt-3 space-y-2 list-disc pl-5">
+  <li>Models the land as the interface through which humanity <strong>affects, adapts to, and mitigates</strong> global environmental change.</li>
+  <li>Covers biogeophysics, hydrology, plant physiology, biogeochemistry, land use, and ecosystem dynamics.</li>
+  <li>Terrestrial ecosystems cycle <strong>energy, water, chemical elements, and trace gases</strong>, so they help determine climate.</li>
+</ul>
+
 </div>
 
-<ul class="mt-8 space-y-4 text-[1.06rem] leading-snug text-gray-700">
-  <li>Usually multidimensional gridded fields; common formats include NetCDF, GRIB, and Zarr.</li>
-  <li>Select a time and level for a map, or a location for a time series.</li>
-  <li>Other examples: ERA5-Land (land), CAMS (atmospheric composition), GloFAS (rivers), CMIP6 (climate projections).</li>
-</ul>
+<div class="mt-3 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://hpscterrsys.github.io/eCLM/" target="_blank" rel="noopener noreferrer">eCLM documentation</a>
+</div>
+
+::right::
+
+<img
+  src="./figures/CLM5_processes_Lawrence2019.png"
+  class="w-full h-auto"
+  alt="Overview of land biogeophysical, biogeochemical, and landscape processes simulated by CLM5: surface energy fluxes, hydrology, biogeochemical cycles, and landscape processes such as land use change, river routing, crops, and vegetation dynamics"
+/>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Fig. 1: Overview of land biogeophysical, biogeochemical and landscape processes simulated by eCLM, which is the same as CLM5. Lawrence et al. (2019).
+</div>
+
+<!--
+Welcome to eCLM! eCLM is based on version 5.0 of the Community Land Model (CLM5). The Community Land Model is the land model for the Community Earth System Model (CESM). It focuses on modeling the land as the critical interface through which humanity affects, adapts to, and mitigates global environmental change. It includes a comprehensive representation of land biogeophysics, hydrology, plant physiology, biogeochemistry, anthropogenic land use, and ecosystem dynamics across a variety of spatial and temporal scales. The central theme is that terrestrial ecosystems, through their cycling of energy, water, chemical elements, and trace gases, are important determinants of climate.
+-->
+
+---
+section: model-outputs
+sectionTitle: Earth System Models
+layout: bonn-two-cols-header
+columns: "minmax(0, 1fr) minmax(0, 2.6fr)"
+---
+
+# CMIP6 — Coupled Model Intercomparison Project Phase 6
+## Climate model ensemble by the World Climate Research Programme (WCRP)
+
+::left::
+
+<div class="compact-table text-[0.72rem]">
+
+| Data description | |
+|---|---|
+| **Resolution** | 0.25° (≈ 28 km), daily |
+| **Coverage** | Global, 1950–2100 |
+| **Historical** | 1950–2014 |
+| **Projections** | 2015–2100 |
+| **Models** | 34 climate models |
+| **Scenarios** | SSP2-4.5, SSP5-8.5 |
+
+</div>
+
+::right::
+
+<iframe
+  v-if="$slidev.nav.currentPage === $page"
+  width="460"
+  height="259"
+  src="https://www.youtube.com/embed/r_fdIvg7XzM?si=-Ty2ZJN9XHopVPOe&amp;controls=0&amp;autoplay=1&amp;mute=1"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+<div v-else style="width: 460px; height: 259px;"></div>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Video: DKRZ / DLR, via <a href="https://www.youtube.com/watch?v=r_fdIvg7XzM" target="_blank" rel="noopener noreferrer">YouTube</a> · CC BY 4.0
+</div>
+
+<!--
+The video only loads when this slide is active, so it starts playing (muted, as browsers require for autoplay) when you arrive here and stops when you leave.
+-->
+
+---
+section: model-outputs
+sectionTitle: Earth System Models
+layout: bonn-two-cols-header
+---
+
+# Analysis, Forecast, Hindcast, Reanalysis, Projection
+
+::left::
+
+<div class="compact-table text-[0.8rem]">
+
+| Product | Purpose |
+|---|---|
+| **Analysis** | Estimate the state at a given time using a model and available observations. |
+| **Forecast** | Predict subsequent conditions from an initialized state. |
+| **Hindcast** | Run a model for a past period; assimilation depends on the experiment. |
+| **Reanalysis** | Reconstruct the past by assimilating archived observations with a consistent modelling system. |
+| **Climate projection** | Simulate possible future climate under specified forcing scenarios. |
+
+</div>
+
+::right::
+
+<img
+  src="./figures/forecast-nowcast-hindcast-schematic.png"
+  class="w-full h-auto"
+  alt="Schematic definitions of forecast, nowcast, hindcast, re-analysis, and analysis along a time axis"
+/>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Figure: <a href="https://www.researchgate.net/publication/299367983" target="_blank" rel="noopener noreferrer">Schematic definitions of Forecast, Nowcast, Hindcast, Re-analysis and Analysis</a>, S. Reddy et al., via ResearchGate.
+</div>
+
+<!--
+Hindcasts may also mean retrospective forecasts used to evaluate forecast skill.
+
+Reanalysis uses a consistent model and assimilation system, but the observing network changes over time.
+
+Climate projections describe conditional climate outcomes, not predictions of weather on a particular future date.
+-->
+
+---
+section: model-outputs
+sectionTitle: Earth System Models
+---
+
+# Earth System Model Outputs on Google Earth Engine
+
+<div class="compact-table mt-3 text-[0.8rem]">
+
+| Product in Earth Engine | Model or system | Product type | |
+|---|---|---|---|
+| **NEX-GDDP, CMIP5** | 21 climate models, including CanESM2, CESM1-BGC and MPI-ESM-LR | Historical simulations and climate projections | <a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_NEX-GDDP" target="_blank" rel="noopener noreferrer">Catalog</a> |
+| **ERA5** | ECMWF modelling and assimilation system | Atmospheric, land and ocean-wave reanalysis | <a href="https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_HOURLY" target="_blank" rel="noopener noreferrer">Catalog</a> |
+| **ERA5-Land** | Land component of the ECMWF system, driven by ERA5 | Historical land-surface reconstruction | <a href="https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_HOURLY" target="_blank" rel="noopener noreferrer">Catalog</a> |
+| **MERRA-2** | NASA GEOS system | Atmospheric reanalysis, including aerosol products | <a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_GSFC_MERRA_slv_2" target="_blank" rel="noopener noreferrer">Catalog</a> |
+| **GLDAS-2.1** | Noah land-surface model | Land-surface simulations: soil moisture, snow, water and energy fluxes | <a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_GLDAS_V021_NOAH_G025_T3H" target="_blank" rel="noopener noreferrer">Catalog</a> |
+| **CFSv2** | NCEP coupled atmosphere–ocean–land–sea-ice model | Selected six-hour forecast fields | <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_CFSV2_FOR6H" target="_blank" rel="noopener noreferrer">Catalog</a> |
+
+</div>
+
+<div class="mt-2 text-[0.65rem] leading-snug text-gray-500">
+  Source: <a href="https://developers.google.com/earth-engine/datasets" target="_blank" rel="noopener noreferrer">Earth Engine Data Catalog</a>
+</div>
 
 <!--
 Forecast data additionally distinguish initialization time, lead time, and valid time.
@@ -1701,25 +2544,84 @@ Sampling a field at a coordinate involves a grid-selection or interpolation choi
 
 ---
 section: model-outputs
-sectionTitle: Models and Re-analysis Products
+sectionTitle: Earth System Models
 ---
 
-# Takeaways — Models and Re-analysis Products
+# Takeaways — Earth System Models
 
-<div class="mt-8 text-left text-[1.16rem] leading-snug text-gray-700">
+<div class="grid grid-cols-2 gap-8 mt-2">
 
-<ul class="space-y-5">
-  <li>Model products provide estimates of environmental conditions across space and time.</li>
-  <li>Analysis, forecast, hindcast, reanalysis, and projection answer different questions.</li>
-  <li>Check the product, time definition, resolution, units, and uncertainty before using a value.</li>
-</ul>
+<div>
+
+<img
+  src="./figures/clima-earth-system-schematic.png"
+  class="w-full h-[230px] object-contain"
+  alt="CliMA schematic: a gridded global Earth model, a satellite, and a high-resolution local simulation box linked by arrows for learning, observing-system targeting and simulation, and driving"
+/>
+
+<div class="mt-2 text-[1.02rem] leading-snug text-center text-gray-700">
+Observations → models + assimilation → gridded fields
+</div>
+
+<div class="mt-1 text-[0.65rem] leading-snug text-center text-gray-500">
+  Figure: <a href="https://clima.caltech.edu/" target="_blank" rel="noopener noreferrer">Climate Modeling Alliance (CliMA)</a>
+</div>
 
 </div>
 
-<blockquote class="mt-10 text-center text-[1.25rem] font-semibold text-blue-900">
+<div class="mt-1 text-left text-[1.0rem] leading-[1.25] text-gray-700">
+
+<ul class="mt-2 space-y-2 text-left">
+  <li>For <strong>every coordinate</strong>, these models provide <strong>land use, land cover, precipitation, temperature, vegetation, wind, and water currents</strong>.</li>
+  <li>Model products are <strong>estimates</strong> of environmental conditions across space and time.</li>
+  <li>Analysis, forecast, hindcast, reanalysis, and projection answer <strong>different questions</strong>.</li>
+  <li>Check the product, time definition, resolution, units, and uncertainty before using a value.</li>
+</ul>
+
+<blockquote class="mt-4 text-[1.02rem] font-semibold text-blue-900">
 A complete grid does not imply perfect knowledge.
 </blockquote>
+
+</div>
+
+</div>
 
 <!--
 Grid spacing is not equivalent to effective spatial detail. These products can supply environmental context for geospatial representation learning, but should not automatically be treated as ground truth.
 -->
+
+
+---
+section: closing
+sectionTitle: Closing
+---
+
+# Lecture Overview
+
+<div class="relative h-[360px] mt-1">
+  <img
+    src="./figures/geospatial-data-sources-overview-step0.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="A globe at the centre of the lecture overview"
+  />
+  <img v-click="1"
+    src="./figures/geospatial-data-sources-overview-step1.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 1: Coordinates and Reference Systems"
+  />
+  <img v-click="2"
+    src="./figures/geospatial-data-sources-overview-step2.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 2: Remote Sensing"
+  />
+  <img v-click="3"
+    src="./figures/geospatial-data-sources-overview-step3.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 3: Geo-information Systems"
+  />
+  <img v-click="4"
+    src="./figures/geospatial-data-sources-overview-step4.svg"
+    class="absolute inset-0 w-full h-[360px] object-contain"
+    alt="Step 4: Earth System Models"
+  />
+</div>
